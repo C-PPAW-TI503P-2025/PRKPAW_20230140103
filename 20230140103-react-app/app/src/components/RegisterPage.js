@@ -72,17 +72,21 @@ function RegisterPage() {
             />
           </div>
 
-          <div className="input-group">
-            <label>Role</label>
-            <select
-              value={role}
-              onChange={(e) => setRole(e.target.value)}
-              required
-            >
-              <option value="mahasiswa">Mahasiswa</option>
-              <option value="admin">Admin</option>
-            </select>
-          </div>
+          <div className="input-group max-w-[280px] mx-auto">
+                <label>Role</label>
+                <select
+                    value={role}
+                    onChange={(e) => setRole(e.target.value)}
+                    required
+                    className="w-full px-3 py-2 rounded-md bg-white/10 border border-white/30 
+                    text-black text-sm placeholder-white/50 focus:outline-none focus:ring-2 
+                    focus:ring-emerald-400"
+                >
+                    <option value="mahasiswa" className="text-black">Mahasiswa</option>
+                    <option value="admin" className="text-black">Admin</option>
+                </select>
+        </div>
+
 
           <div className="login-button-wrapper">
             <button type="submit" className="login-btn">
