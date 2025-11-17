@@ -1,0 +1,32 @@
+<h1>📚 Books</h1>
+<div class="card">
+  <div class="topbar">
+    <h2>Daftar Buku</h2>
+    <a class="btn btn-primary" href="/books/new">+ Tambah Buku</a>
+  </div>
+
+  <table>
+    <thead>
+      <tr><th style="width:64px">ID</th><th>Judul</th><th>Penulis</th><th style="width:200px">Aksi</th></tr>
+    </thead>
+    <tbody>
+      <% if (books.length === 0) { %>
+        <tr><td colspan="4" class="muted">Belum ada data.</td></tr>
+      <% } %>
+      <% books.forEach(b => { %>
+        <tr>
+          <td><%= b.id %></td>
+          <td><%= b.title %></td>
+          <td><%= b.author %></td>
+          <td class="actions">
+            <a class="btn btn-ghost" href="/books/<%= b.id %>/edit">Edit</a>
+            <form method="POST" action="/books/<%= b.id %>?_method=DELETE" onsubmit="return confirm('Hapus buku ini?')">
+              <button class="btn btn-danger" type="submit">Hapus</button>
+            </form>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>
+<p class="muted">API juga tersedia di <code>/api/books</code></p>

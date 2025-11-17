@@ -1,0 +1,17 @@
+<h1><%= mode === 'create' ? '➕ Tambah Buku' : '✏️ Edit Buku' %></h1>
+<div class="card">
+  <form method="POST" action="<%= mode==='create' ? '/books' : ('/books/' + book.id + '?_method=PUT') %>">
+    <div class="row">
+      <label>Judul</label>
+      <input name="title" value="<%= book.title %>" required>
+    </div>
+    <div class="row">
+      <label>Penulis</label>
+      <input name="author" value="<%= book.author %>" required>
+    </div>
+    <div class="actions">
+      <button class="btn btn-primary" type="submit"><%= mode==='create' ? 'Simpan' : 'Update' %></button>
+      <a class="btn btn-ghost" href="/books">Batal</a>
+    </div>
+  </form>
+</div>
