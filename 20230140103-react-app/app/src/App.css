@@ -26,11 +26,67 @@
   backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 20px;
-  padding: 3rem 8rem;
+  padding: 2.5rem 3rem;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
   text-align: center;
   color: #111827;
+  max-width: 520px;
+  width: min(90vw, 520px);
 }
+
+/* Form login & layout */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.input-group {
+  text-align: center;
+}
+
+.input-group label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  display: block;
+  color: #111827;
+}
+
+.login-button-wrapper {
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.login-btn {
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 0.75rem 2.5rem;
+  border-radius: 10px;
+  border: none;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  color: black;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.login-btn:hover {
+  background: #e63d6a;
+}
+
+/* Error text */
+.error-text {
+  margin-top: -0.25rem;
+  color: #d20f39;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-align: center;
+}
+
 
 /* Judul besar */
 .title {
