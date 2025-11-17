@@ -1,36 +1,59 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import "../App.css";
 
 function DashboardPage() {
   const navigate = useNavigate();
+  const [user, setUser] = useState(null);
 
-  const handleLogout = () => {
-    localStorage.removeItem('token'); // Hapus token dari local storage
-    navigate('/login'); // Arahkan kembali ke halaman login
-  };
+  useEffect(() => {
+    // ambil user dari localStorage
+    const storedUser = localStorage.getItem("user");
+
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+    } else {
+      // kalau ga ada user, langsung logout aja
+      navigate("/login");
+    }
+  }, [navigate]);
 
   return (
-    <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center p-8">
-      
-      
-      <div className="bg-white p-10 rounded-lg shadow-md text-center">        
-        <h1 className="text-3xl font-bold text-green-600 mb-4">
-          Login Sukses!
+    <div className="app">
+      <div className="container">
+        {/* Title */}
+        <h1 className="title">
+          Welcome{user ? `, ${user.name}!` : "!"}
         </h1>
-       
-        <p className="text-lg text-gray-700 mb-8">
-          Selamat Datang di Halaman Dashboard Anda.
+
+        <p className="mt-2 text-sm md:text-base text-gray-800/80">
+          Anda login sebagai <b>{user?.role || "unknown role"}</b>
         </p>
 
-     
-        <button
-          onClick={handleLogout}
-          className="py-2 px-6 bg-red-500 text-white font-semibold rounded-md shadow-sm hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
-        >
-          Logout
-        </button>
-      </div>
+        {/* Dashboard grid content */}
+        <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4 text-left">
+          <div className="bg-white/40 rounded-xl p-4 shadow-md">
+            <h2 className="font-semibold mb-1 text-gray-900">Nama Akun</h2>
+            <p className="text-sm text-gray-700">
+              {user?.name}
+            </p>
+          </div>
 
+          <div className="bg-white/40 rounded-xl p-4 shadow-md">
+            <h2 className="font-semibold mb-1 text-gray-900">Email</h2>
+            <p className="text-sm text-gray-700">
+              {user?.email}
+            </p>
+          </div>
+
+          <div className="bg-white/40 rounded-xl p-4 shadow-md">
+            <h2 className="font-semibold mb-1 text-gray-900">Role</h2>
+            <p className="text-sm text-gray-700 capitalize">
+              {user?.role}
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

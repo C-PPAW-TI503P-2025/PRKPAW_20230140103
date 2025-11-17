@@ -21,6 +21,7 @@ function LoginPage() {
 
       const token = response.data.token;
       localStorage.setItem("token", token);
+      localStorage.setItem("user", JSON.stringify(response.data.user));
       navigate("/dashboard");
     } catch (err) {
       setError("Email atau password salah.");
@@ -30,7 +31,7 @@ function LoginPage() {
   return (
     <div className="app">
       <div className="container">
-        <h1 className="title">Welcome Back</h1>
+        <h1 className="title">Welcome to the Login Page</h1>
 
         <form onSubmit={handleSubmit} className="login-form">
           <div className="input-group">

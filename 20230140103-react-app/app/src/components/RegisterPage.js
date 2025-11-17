@@ -4,9 +4,10 @@ import { useNavigate } from "react-router-dom";
 import "../App.css";
 
 function RegisterPage() {
-  const [email, setEmail] = useState("");
   const [nama, setNama] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [role, setRole] = useState("mahasiswa"); // 🔥 default mahasiswa
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
@@ -15,17 +16,19 @@ function RegisterPage() {
     setError("");
 
     try {
-      const res = await axios.post("http://localhost:3001/api/auth/register", {
+      await axios.post("http://localhost:3001/api/auth/register", {
+        name: nama,
         email,
-        nama,
         password,
+        role, // 🔥 kirim role ke backend
       });
 
-      alert("Register berhasil!");
+      alert("Register berhasil, silakan login!");
       navigate("/login");
     } catch (err) {
       setError(
-        err.response?.data?.message || "Gagal register. Coba lagi brok!"
+        err.response?.data?.message ||
+          "Gagal register. Coba lagi brok!"
       );
     }
   };
@@ -67,6 +70,18 @@ function RegisterPage() {
               onChange={(e) => setPassword(e.target.value)}
               required
             />
+          </div>
+
+          <div className="input-group">
+            <label>Role</label>
+            <select
+              value={role}
+              onChange={(e) => setRole(e.target.value)}
+              required
+            >
+              <option value="mahasiswa">Mahasiswa</option>
+              <option value="admin">Admin</option>
+            </select>
           </div>
 
           <div className="login-button-wrapper">
