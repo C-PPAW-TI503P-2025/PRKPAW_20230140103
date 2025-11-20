@@ -20,7 +20,7 @@ function RegisterPage() {
         name: nama,
         email,
         password,
-        role, // 🔥 kirim role ke backend
+        role,
       });
 
       alert("Register berhasil, silakan login!");

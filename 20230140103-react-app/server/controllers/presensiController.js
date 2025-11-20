@@ -186,4 +186,3 @@ exports.getDailyReport = async (req, res) => {
   }
 };
 
-		

@@ -10,6 +10,9 @@ import {
 import LoginPage from "./components/LoginPage";
 import RegisterPage from "./components/RegisterPage";
 import DashboardPage from "./components/DashboardPage";
+import PresensiPage from "./components/PresensiPage";
+import ReportPage from "./components/ReportPage";
+import AttendancePage from "./components/PresensiPage";
 
 function App() {
   return (
@@ -19,6 +22,8 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/dashboard" element={<DashboardPage />} />
+        <Route path="/attendance" element={<AttendancePage />} />
+        <Route path="/reports" element={<ReportPage />} />
         <Route path="/" element={<LoginPage />} />
       </Routes>
     </Router>
@@ -28,6 +33,7 @@ function App() {
 function Header() {
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
+  const role = localStorage.getItem('role');
 
   const handleLogout = () => {
     localStorage.removeItem("token");
@@ -39,9 +45,11 @@ function Header() {
     <nav className="top-nav">
       {/* kiri */}
       {token ? (
-        <Link to="/dashboard" className="font-semibold">
-          Dashboard
-        </Link>
+        <>
+          <Link to="/dashboard">Dashboard</Link>
+          <Link to="/attendance">Presensi</Link>
+          <Link to="/reports">Laporan</Link>
+        </>        
       ) : (
         <>
           <Link to="/login">Login</Link>
