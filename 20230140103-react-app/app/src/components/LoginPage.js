@@ -20,8 +20,11 @@ function LoginPage() {
       );
 
       const token = response.data.token;
+      const user  = response.data.user;
+
       localStorage.setItem("token", token);
-      localStorage.setItem("user", JSON.stringify(response.data.user));
+      localStorage.setItem("user", JSON.stringify(user));
+
       navigate("/dashboard");
     } catch (err) {
       setError("Email atau password salah.");

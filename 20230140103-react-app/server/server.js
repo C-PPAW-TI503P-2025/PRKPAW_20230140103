@@ -88,59 +88,6 @@ app.delete('/books/:id', (req, res) => {
   res.redirect('/books');
 });
 
-app.post("/api/auth/register", (req, res) => {
-  const { name, email, password, role } = req.body;
-
-  if (!name || !email || !password || !role) {
-    return res.status(400).json({ message: "Semua field wajib diisi." });
-  }
-
-  const existing = users.find((u) => u.email === email);
-  if (existing) {
-    return res.status(400).json({ message: "Email sudah terdaftar." });
-  }
-
-  const newUser = {
-    id: users.length + 1,
-    name,
-    email,
-    password, 
-  };
-
-  users.push(newUser);
-
-  return res.status(201).json({
-    message: "Register berhasil.",
-  });
-});
-
-app.post("/api/auth/login", (req, res) => {
-  const { email, password } = req.body;
-
-  const user = users.find(
-    (u) => u.email === email && u.password === password
-  );
-
-  if (!user) {
-    return res
-      .status(401)
-      .json({ message: "Email atau password salah." });
-  }
-
-  // "token" dummy buat disimpan di localStorage
-  const token = `dummy-token-${user.id}-${Date.now()}`;
-
-  return res.json({
-    message: "Login berhasil.",
-    token,
-    user: {
-      id: user.id,
-      name: user.name,
-      email: user.email,
-      role: user.role,
-    },
-  });
-});
 // ---------- API tetap ----------
 app.use('/api/books', apiBookRoutes);
 app.use("/api/presensi", presensiRoutes);

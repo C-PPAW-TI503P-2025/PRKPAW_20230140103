@@ -29,7 +29,9 @@ module.exports = (sequelize, DataTypes) => {
     checkOut: {
       type: DataTypes.DATE,
       allowNull: true, // Boleh null
-    }
+    },
+    latitude: DataTypes.DECIMAL(10, 8),
+    longitude: DataTypes.DECIMAL(11, 8),
   }, {
     sequelize,
     modelName: 'Presensi',
