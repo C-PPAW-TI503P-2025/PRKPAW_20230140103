@@ -36,6 +36,12 @@
   width: min(90vw, 520px);
 }
 
+.report-container {
+  max-width: 900px;              /* dulu 380–400px, ini dibesarin */
+  width: min(95vw, 900px);       /* biar responsif */
+}
+
+
 /* Form login & layout */
 .login-form {
   display: flex;

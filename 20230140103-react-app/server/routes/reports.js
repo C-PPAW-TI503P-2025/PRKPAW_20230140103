@@ -2,12 +2,16 @@ const express = require('express');
 const router = express.Router();
 
 const reportController = require('../controllers/reportController');
+const authenticateToken = require('../middleware/authenticateToken');
 const { addUserData, isAdmin } = require('../middleware/permissionMiddleware');
 
-// JANGAN: router.get('/daily', [addUserData, isAdmin], reportController.getDailyReport);
-// PAKAI:
-router.get('/daily', addUserData, isAdmin, reportController.getDailyReport);
-router.get("/daily", reportController.getDailyReport);
+// PAKAI SATU ROUTE AJA, JANGAN DOUBEL
+router.get(
+  '/daily',
+  authenticateToken, // ambil user dari JWT
+  addUserData,       // kalau gak ada JWT bisa fallback dari header (optional)
+  isAdmin,           // cek role admin
+  reportController.getDailyReport
+);
 
-
-module.exports = router; // <- penting
+module.exports = router;

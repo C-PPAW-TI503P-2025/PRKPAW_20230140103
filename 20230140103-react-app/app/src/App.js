@@ -10,7 +10,6 @@ import {
 import LoginPage from "./components/LoginPage";
 import RegisterPage from "./components/RegisterPage";
 import DashboardPage from "./components/DashboardPage";
-import PresensiPage from "./components/PresensiPage";
 import ReportPage from "./components/ReportPage";
 import AttendancePage from "./components/PresensiPage";
 
