@@ -7,5 +7,6 @@ router.post("/check-in", authenticateToken, presensiController.CheckIn);
 router.post("/check-out", authenticateToken, presensiController.CheckOut);
 router.delete("/:id", authenticateToken, presensiController.deletePresensi);
 router.put("/:id", authenticateToken, presensiController.updatePresensi);
+router.post('/check-in', [authenticateToken, presensiController.upload.single('image')], presensiController.CheckIn);
 
 module.exports = router;

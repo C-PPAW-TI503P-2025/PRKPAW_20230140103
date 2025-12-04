@@ -34,6 +34,7 @@ app.use(logger);
 app.use(express.static('public'));
 app.use(morgan("dev"));
 
+
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.use(expressLayouts);
@@ -88,11 +89,12 @@ app.delete('/books/:id', (req, res) => {
   res.redirect('/books');
 });
 
-// ---------- API tetap ----------
+// ---------- API tetap ----------s 
 app.use('/api/books', apiBookRoutes);
 app.use("/api/presensi", presensiRoutes);
 app.use("/api/reports", reportRoutes);
 app.use("/api/auth", authRoutes);
+app.use('/uploads', express.static(path.join(__dirname, 'upsloads')));
 
 // error handlers
 app.use(notFound);
