@@ -30,6 +30,10 @@ exports.upload = multer({ storage: storage, fileFilter: fileFilter });
  	exports.CheckIn = async (req, res) => {
  	  // 2. Gunakan try...catch untuk error handling
  	  try {
+		console.log("==== CHECK IN ====");
+		console.log("BODY:", req.body);
+		console.log("FILE:", req.file);
+
  	    const { id: userId, nama: userName } = req.user;
  	    const waktuSekarang = new Date();	
 		const { latitude, longitude } = req.body;
@@ -53,7 +57,7 @@ exports.upload = multer({ storage: storage, fileFilter: fileFilter });
  	      checkIn: waktuSekarang,
 		  latitude: latitude, 
 	      longitude: longitude,
-		  buktiFoto: buktiFoto
+		  buktiFoto: buktiFoto,
  	    });
  	    
  	    const formattedData = {

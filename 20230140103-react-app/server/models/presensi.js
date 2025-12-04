@@ -30,6 +30,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DATE,
       allowNull: true, // Boleh null
     },
+    buktiFoto: {
+      type: DataTypes.STRING,
+      allowNull: true, // Boleh null
+    },
     latitude: DataTypes.DECIMAL(10, 8),
     longitude: DataTypes.DECIMAL(11, 8),
   }, {

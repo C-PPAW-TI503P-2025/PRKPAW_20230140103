@@ -1,4 +1,3 @@
-// server/migrations/XXXX-add-bukti-foto-to-presensis.js
 'use strict';
 
 module.exports = {

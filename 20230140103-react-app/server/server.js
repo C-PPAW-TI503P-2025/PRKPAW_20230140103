@@ -94,7 +94,7 @@ app.use('/api/books', apiBookRoutes);
 app.use("/api/presensi", presensiRoutes);
 app.use("/api/reports", reportRoutes);
 app.use("/api/auth", authRoutes);
-app.use('/uploads', express.static(path.join(__dirname, 'upsloads')));
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // error handlers
 app.use(notFound);
