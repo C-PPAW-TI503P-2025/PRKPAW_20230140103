@@ -3,3 +3,6 @@ tampilan bukti foto
 
 fullscreen
 <img width="2559" height="1542" alt="image" src="https://github.com/user-attachments/assets/36739975-a01c-41af-bce6-19f730447e75" />
+
+db
+<img width="1802" height="304" alt="image" src="https://github.com/user-attachments/assets/0a54cd98-1708-4ab5-8eef-d47c991f7d64" />
