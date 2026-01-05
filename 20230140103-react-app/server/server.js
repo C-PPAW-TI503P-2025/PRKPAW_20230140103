@@ -96,6 +96,10 @@ app.use("/api/reports", reportRoutes);
 app.use("/api/auth", authRoutes);
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
+const iotRoutes = require("./routes/iot");
+app.use("/api/iot", iotRoutes);
+
+
 // error handlers
 app.use(notFound);
 app.use(errorHandler);

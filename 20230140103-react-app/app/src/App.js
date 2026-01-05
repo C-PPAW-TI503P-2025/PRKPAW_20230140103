@@ -24,6 +24,7 @@ function App() {
         <Route path="/attendance" element={<AttendancePage />} />
         <Route path="/reports" element={<ReportPage />} />
         <Route path="/" element={<LoginPage />} />
+        <Route path="/monitoring" element={<SensorPage />} />
       </Routes>
     </Router>
   );
@@ -48,6 +49,7 @@ function Header() {
           <Link to="/dashboard">Dashboard</Link>
           <Link to="/attendance">Presensi</Link>
           <Link to="/reports">Laporan</Link>
+          <Link to="/monitoring">Monitoring Suhu</Link>
         </>        
       ) : (
         <>
