@@ -12,6 +12,7 @@ import RegisterPage from "./components/RegisterPage";
 import DashboardPage from "./components/DashboardPage";
 import ReportPage from "./components/ReportPage";
 import AttendancePage from "./components/PresensiPage";
+import SensorPage from "./components/SensorPage";
 
 function App() {
   return (
